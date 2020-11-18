@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author asus
- *
- */
-module index {
-}
