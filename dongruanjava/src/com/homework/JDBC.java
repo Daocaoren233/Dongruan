@@ -17,21 +17,24 @@ public class JDBC {
         String sql3 = "delete from infor where id = 1";
 
 
-//        ResultSet rs = stmt.executeQuery(sql1);
+        ResultSet rs = stmt.executeQuery(sql1);
+
+        while(rs.next()){
+            System.out.println(rs.getInt("id")+"---"+rs.getString(2)+"---"+rs.getDouble(3));
+//            rs.getInt(columnIndex:index); or rs.getInt(columnLabel "str");
+//            rs.getDouble();
+//            rs.getString();
+        }
+
+
+//        int i = stmt.executeUpdate(sql3);
 //
-//        while(rs.next()){
-//            System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
+//        if(i == 1){
+//            System.out.println("更新成功！");
 //        }
-
-
-        int i = stmt.executeUpdate(sql3);
-
-        if(i == 1){
-            System.out.println("更新成功！");
-        }
-        else{
-            System.out.println("更新失败！");
-        }
+//        else{
+//            System.out.println("更新失败！");
+//        }
         stmt.close();
         conn.close();
     }
