@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class businessImpl implements businessdao {
+public class businessdaoImpl implements businessdao {
 
     Connection conn = null;
     PreparedStatement pst = null;
@@ -135,7 +135,7 @@ public class businessImpl implements businessdao {
 
     @Override
     public business getBusinessById(int businessId) {
-        business bs = new business();
+        business bs = null;
         String sql = "select * from business where businessId = ?";
         try {
             conn = JDBCutils.getConnection();

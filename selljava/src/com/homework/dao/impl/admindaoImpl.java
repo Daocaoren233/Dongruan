@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class adminImpl implements admindao {
+public class admindaoImpl implements admindao {
     Connection conn = null;
     PreparedStatement pmt = null;
     ResultSet rs = null;
