@@ -62,9 +62,9 @@ public class food {
     @Override
     public String toString() {
         return  "foodId=" + foodId + '\n' +
-                ", foodName=" + foodName + '\n' +
-                ", foodExplain=" + foodExplain + '\n' +
-                ", foodPrice=" + foodPrice + '\n' +
-                ", businessId=" + businessId + '\n';
+                "foodName=" + foodName + '\n' +
+                "foodExplain=" + foodExplain + '\n' +
+                "foodPrice=" + foodPrice + '\n' +
+                "businessId=" + businessId + '\n';
     }
 }

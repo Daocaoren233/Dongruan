@@ -19,22 +19,33 @@ public class fooddaoImpl implements fooddao {
 
     @Override
     public List<food> listFoodByBusinessId(int businessId) {
-        List<food> foodList = new ArrayList<>();
+        List<food> foodList = null;
         String sql = "select * from food where businessId = ?";
         try {
             conn = JDBCutils.getConnection();
             pst = conn.prepareStatement(sql);
-            pst.setInt(1,businessId);
+            pst.setInt(1, businessId);
             rs = pst.executeQuery();
-            while(rs.next()){
+            if (rs.next()) {
+                foodList = new ArrayList<>();
                 int foodId = rs.getInt(1);
                 String foodName = rs.getString(2);
                 String foodExplain = rs.getString(3);
                 double foodPrice = rs.getDouble(4);
-                food fo = new food(foodId,foodName,foodExplain,foodPrice,businessId);
+                food fo = new food(foodId, foodName, foodExplain, foodPrice, businessId);
                 foodList.add(fo);
+                while(rs.next()) {
+                    foodId = rs.getInt(1);
+                    foodName = rs.getString(2);
+                    foodExplain = rs.getString(3);
+                    foodPrice = rs.getDouble(4);
+                    fo = new food(foodId, foodName, foodExplain, foodPrice, businessId);
+                    foodList.add(fo);
+                }
             }
-
+            else {
+                System.out.println("不存在该商家！");
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
@@ -67,7 +78,7 @@ public class fooddaoImpl implements fooddao {
     @Override
     public int updateFood(food fo) {
         int result = 0;
-        String sql = "update food set foodName = ?,foodExplain = ?, foodPrize = ? where foodId = ?";
+        String sql = "update food set foodName = ?,foodExplain = ?, foodPrice = ? where foodId = ?";
         try {
             conn = JDBCutils.getConnection();
             pst = conn.prepareStatement(sql);

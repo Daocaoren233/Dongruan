@@ -5,7 +5,6 @@ import com.homework.dao.impl.fooddaoImpl;
 import com.homework.domain.food;
 import com.homework.view.foodview;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,10 +15,15 @@ public class foodviewImpl implements foodview {
 
     @Override
     public void showFoodList(int businessId) {
-        List<food> foodList = new ArrayList<>();
+        List<food> foodList = null;
         foodList = fd.listFoodByBusinessId(businessId);
-        for (food e: foodList){
-            System.out.println(e);
+        if (foodList == null){
+            System.out.println("该商店没有食品！");
+        }
+        else {
+            for (food e: foodList){
+                System.out.println(e);
+            }
         }
 
         return;

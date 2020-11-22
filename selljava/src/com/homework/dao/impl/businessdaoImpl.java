@@ -21,7 +21,6 @@ public class businessdaoImpl implements businessdao {
     public List<business> listBusiness(String businessName, String businessAddress){
 
         List<business> businessList = null;
-//        List<business> businessList = new ArrayList<>();
 
         StringBuffer sql = new StringBuffer("select * from business where 1=1 ");
         if (businessName != null && !businessName.equals("")){
@@ -36,8 +35,7 @@ public class businessdaoImpl implements businessdao {
             conn = JDBCutils.getConnection();
             pst = conn.prepareStatement(sql.toString());
             rs = pst.executeQuery();
-            ResultSet rs1 = pst.executeQuery();
-            if (rs1.next()){
+            if (rs.next()){
                 businessList = new ArrayList<>();
                 while (rs.next()){
                     int businessId = rs.getInt(1);
@@ -51,10 +49,11 @@ public class businessdaoImpl implements businessdao {
                     businessList.add(bs);
                 }
             }
-            JDBCutils.close(rs,pst,conn);
-            rs1.close();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }finally {
+            JDBCutils.close(rs,pst,conn);
         }
 
         return businessList;

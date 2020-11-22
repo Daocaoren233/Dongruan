@@ -72,7 +72,7 @@ public class ElmBusinessAdminEntry {
         int index = 0;
         while(index != 5){
             System.out.println("----------------------------------------------");
-            System.out.println("1.     查看食品信息\n2.     修改食品信息\n3.     增加食品信息\n4.     删除食品信息\n5.     返回上一级");
+            System.out.println("     1.查看食品信息\n     2.修改食品信息\n     3.增加食品信息\n     4.删除食品信息\n     5.返回上一级");
             System.out.print("请输入你需要操作的序号：");
             index = input.nextInt();
             switch (index){
