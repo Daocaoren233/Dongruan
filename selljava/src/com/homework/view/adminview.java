@@ -9,8 +9,5 @@ import com.homework.domain.admin;
 
 public interface adminview {
     public admin login();
-    public void LookoverBusiness();
-    public void SearchBusiness();
-    public void CreateBusiness();
-    public void DeleteBusiness();
+
 }

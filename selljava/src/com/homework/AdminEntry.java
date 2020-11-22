@@ -1,7 +1,9 @@
 package com.homework;
 
 import com.homework.view.Impl.adminviewImpl;
+import com.homework.view.Impl.businessviewImpl;
 import com.homework.view.adminview;
+import com.homework.view.businessview;
 
 import java.util.Scanner;
 
@@ -16,6 +18,7 @@ public class AdminEntry {
         System.out.println("======================饿来么管理系统==================");
         System.out.println("===================================================");
         adminview al = new adminviewImpl();
+        businessview bv = new businessviewImpl();
         if(al.login()!=null){
             System.out.println("登陆成功，欢迎来到饿来么管理系统！");
             int index = 0;
@@ -26,16 +29,16 @@ public class AdminEntry {
                 index = input.nextInt();
                 switch (index){
                     case 1:
-                        al.LookoverBusiness();
+                        bv.listAllBusiness();
                         break;
                     case 2:
-                        al.SearchBusiness();
+                        bv.SearchBusiness();
                         break;
                     case 3:
-                        al.CreateBusiness();
+                        bv.CreateBusiness();
                         break;
                     case 4:
-                        al.DeleteBusiness();
+                        bv.DeleteBusiness();
                         break;
                     case 5:
                         System.out.println("退出成功，欢迎下次进入饿来么管理系统！");

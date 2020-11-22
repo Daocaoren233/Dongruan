@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface businessdao {
-    public List<business> listBusiness() throws Exception;
+    public List<business> listBusiness(String businessName, String businessAddress) throws Exception;
 
     public int saveBusiness(String businessName) throws SQLException, Exception;
 

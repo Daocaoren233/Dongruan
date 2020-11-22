@@ -18,27 +18,37 @@ public class businessdaoImpl implements businessdao {
     ResultSet rs = null;
 
     @Override
-    public List<business> listBusiness() throws Exception {
+    public List<business> listBusiness(String businessName, String businessAddress){
 
         List<business> businessList = new ArrayList<>();
-        String sql = "select * from business";
-        conn = JDBCutils.getConnection();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-
-        while (rs.next()){
-            Integer businessId = rs.getInt(1);
-            String password = rs.getString(2);
-            String businessName = rs.getString(3);
-            String businessAddress = rs.getString(4);
-            String businessExplain = rs.getString(5);
-            Double starPrice = rs.getDouble(6);
-            Double deliveryPrice = rs.getDouble(7);
-            business bs = new business(businessId,password,businessName,businessAddress,businessExplain,starPrice,deliveryPrice);
-            businessList.add(bs);
+        StringBuffer sql = new StringBuffer("select * from business where 1=1 ");
+        if (businessName != null && !businessName.equals("")){
+            sql.append("and businessName like '%"+ businessName +"%' ");
         }
+        if (businessAddress != null && !businessAddress.equals("")){
+            sql.append("and businessAddress like '%"+ businessAddress +"%'");
+        }
+//        System.out.println(sql.toString());
 
-        JDBCutils.close(rs,pst,conn);
+        try {
+            conn = JDBCutils.getConnection();
+            pst = conn.prepareStatement(sql.toString());
+            rs = pst.executeQuery();
+            while (rs.next()){
+                Integer businessId = rs.getInt(1);
+                String password = rs.getString(2);
+                String businessNam = rs.getString(3);
+                String businessAddres = rs.getString(4);
+                String businessExplain = rs.getString(5);
+                Double starPrice = rs.getDouble(6);
+                Double deliveryPrice = rs.getDouble(7);
+                business bs = new business(businessId,password,businessNam,businessAddres,businessExplain,starPrice,deliveryPrice);
+                businessList.add(bs);
+            }
+            JDBCutils.close(rs,pst,conn);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
         return businessList;
     }

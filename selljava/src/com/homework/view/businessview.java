@@ -5,6 +5,9 @@ public interface businessview {
 //2. 搜索商家
 //3. 新建商家
 //4. 删除商家
-    public void LookoverBusiness() throws Exception;
+    public void listAllBusiness();
+    public void SearchBusiness();
+    public void CreateBusiness();
+    public void DeleteBusiness();
 
 }
