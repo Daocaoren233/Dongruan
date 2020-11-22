@@ -4,7 +4,6 @@ import com.homework.dao.businessdao;
 import com.homework.dao.impl.businessdaoImpl;
 import com.homework.domain.business;
 import com.homework.view.businessview;
-import jdk.swing.interop.SwingInterOpUtils;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -50,7 +49,7 @@ public class businessviewImpl implements businessview {
 
         try {
             List<business> list = bd.listBusiness(businessName,businessAddress);
-            if(list[0] != null){
+            if(list != null){
                 for (business e : list){
                     System.out.println(e);
                 }
@@ -108,6 +107,104 @@ public class businessviewImpl implements businessview {
 
     }
 
+    @Override
+    public business login() {
+        business bs = null;
+        System.out.print("请输入用户名ID：");
+        int businessId = input.nextInt();
+        System.out.print("请输入密码：");
+        String password = input.next();
+        bs = bd.getBisinessByIdandPassword(businessId,password);
+        if (bs != null){
+            System.out.println("商家"+bs.getBusinessName()+"欢迎回来！");
+        }
+        else {
+            System.out.println("用户名密码错误！");
+        }
+
+        return bs;
+    }
+
+    @Override
+    public void showBusiness(int businessId) {
+        business bs = bd.getBusinessById(businessId);
+        if (bs != null){
+            System.out.println(bs);
+        }
+        else {
+            System.out.println("此用户账号已经注销，请重新申请账号！");
+        }
+        return;
+    }
+
+
+    @Override
+    public void updateBusiness(int businessId) {
+        String businessName = "";
+        String businessAddress = "";
+        String businessExplain = "";
+        double starPrice = 0.0;
+        double deliveryPrice = 0.0;
+        System.out.print("请输入新的店名：");
+        businessName = input.next();
+        System.out.print("请输入新的地址：");
+        businessAddress = input.next();
+        System.out.print("请输入新的备注：");
+        businessExplain = input.next();
+        System.out.print("请输入新的启送费：");
+        starPrice = input.nextDouble();
+        System.out.print("请输入新的运送费：");
+        deliveryPrice = input.nextDouble();
+
+        business bs = new business(businessId,null,businessName,businessAddress,businessExplain,starPrice,deliveryPrice);
+        int i = bd.updateBusiness(bs);
+        if (i == 1){
+            System.out.println("修改成功！");
+        }
+        else{
+            System.out.println("修改失败！");
+        }
+        return;
+
+    }
+
+    @Override
+    public void updatePassword(int businessId) {
+        System.out.print("请输入旧密码：");
+        String oldpass = input.next();
+        String newpass = "";
+        String renewpass = "";
+        String password = bd.getBusinessById(businessId).getPassword();
+        if (password.equals(oldpass)){
+            boolean flag = true;
+            while(flag){
+                System.out.print("请输入新密码：");
+                newpass = input.next();
+                System.out.print("请再次输入新密码：");
+                renewpass = input.next();
+                if (newpass.equals(renewpass)){
+                    flag = false;
+                }
+                else {
+                    System.out.println("密码不一致！");
+                }
+            }
+            int i = bd.updateBusinessPassword(businessId,newpass);
+            if (i == 1){
+                System.out.println("修改成功！");
+            }
+            else {
+                System.out.println("修改失败！");
+            }
+
+        }
+        else {
+            System.out.println("密码错误！");
+        }
+
+
+
+    }
 
 
 }

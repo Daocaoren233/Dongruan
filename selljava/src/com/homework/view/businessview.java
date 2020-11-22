@@ -1,5 +1,7 @@
 package com.homework.view;
 
+import com.homework.domain.business;
+
 public interface businessview {
 //1. 查看所有商家
 //2. 搜索商家
@@ -9,5 +11,10 @@ public interface businessview {
     public void SearchBusiness();
     public void CreateBusiness();
     public void DeleteBusiness();
+
+    public business login();
+    public void showBusiness(int businessId);
+    public void updateBusiness(int businessId);
+    public void updatePassword(int businessId);
 
 }

@@ -82,10 +82,9 @@ public class business {
     @Override
     public String toString() {
         return "businessId=" + businessId + '\n' +
-                "password='" + password + '\n' +
-                "businessName='" + businessName + '\n' +
-                "businessAddress='" + businessAddress + '\n' +
-                "businessExplain='" + businessExplain + '\n' +
+                "businessName=" + businessName + '\n' +
+                "businessAddress=" + businessAddress + '\n' +
+                "businessExplain=" + businessExplain + '\n' +
                 "starPrice=" + starPrice + '\n' +
                 "deliveryPrice=" + deliveryPrice + '\n';
     }

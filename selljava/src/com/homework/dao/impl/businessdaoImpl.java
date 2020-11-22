@@ -20,7 +20,9 @@ public class businessdaoImpl implements businessdao {
     @Override
     public List<business> listBusiness(String businessName, String businessAddress){
 
-        List<business> businessList = new ArrayList<>();
+        List<business> businessList = null;
+//        List<business> businessList = new ArrayList<>();
+
         StringBuffer sql = new StringBuffer("select * from business where 1=1 ");
         if (businessName != null && !businessName.equals("")){
             sql.append("and businessName like '%"+ businessName +"%' ");
@@ -34,18 +36,23 @@ public class businessdaoImpl implements businessdao {
             conn = JDBCutils.getConnection();
             pst = conn.prepareStatement(sql.toString());
             rs = pst.executeQuery();
-            while (rs.next()){
-                Integer businessId = rs.getInt(1);
-                String password = rs.getString(2);
-                String businessNam = rs.getString(3);
-                String businessAddres = rs.getString(4);
-                String businessExplain = rs.getString(5);
-                Double starPrice = rs.getDouble(6);
-                Double deliveryPrice = rs.getDouble(7);
-                business bs = new business(businessId,password,businessNam,businessAddres,businessExplain,starPrice,deliveryPrice);
-                businessList.add(bs);
+            ResultSet rs1 = pst.executeQuery();
+            if (rs1.next()){
+                businessList = new ArrayList<>();
+                while (rs.next()){
+                    int businessId = rs.getInt(1);
+                    String password = rs.getString(2);
+                    String businessNam = rs.getString(3);
+                    String businessAddres = rs.getString(4);
+                    String businessExplain = rs.getString(5);
+                    Double starPrice = rs.getDouble(6);
+                    Double deliveryPrice = rs.getDouble(7);
+                    business bs = new business(businessId,password,businessNam,businessAddres,businessExplain,starPrice,deliveryPrice);
+                    businessList.add(bs);
+                }
             }
             JDBCutils.close(rs,pst,conn);
+            rs1.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -165,5 +172,55 @@ public class businessdaoImpl implements businessdao {
         }
 
         return bs;
+    }
+
+    @Override
+    public business getBisinessByIdandPassword(int businessId,String password) {
+        business bs = null;
+        try {
+            conn = JDBCutils.getConnection();
+            String sql = "select * from business where businessId = ? and password = ?";
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1,businessId);
+            pst.setString(2,password);
+            rs = pst.executeQuery();
+            if (rs.next()){
+                bs = new business();
+                bs.setBusinessId(rs.getInt(1));
+                bs.setPassword(rs.getString(2));
+                bs.setBusinessName(rs.getString(3));
+                bs.setBusinessAddress(rs.getString(4));
+                bs.setBusinessExplain(rs.getString(5));
+                bs.setStarPrice(rs.getDouble(6));
+                bs.setDeliveryPrice(rs.getDouble(7));
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            JDBCutils.close(rs,pst,conn);
+        }
+
+
+        return bs;
+    }
+
+    @Override
+    public int updateBusinessPassword(int businessId,String password) {
+        int result = 0;
+        String sql = "update business set password = ? where businessId = ?";
+        try {
+            conn = JDBCutils.getConnection();
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,password);
+            pst.setInt(2,businessId);
+            result = pst.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            JDBCutils.close(rs,pst,conn);
+        }
+
+        return result;
     }
 }
