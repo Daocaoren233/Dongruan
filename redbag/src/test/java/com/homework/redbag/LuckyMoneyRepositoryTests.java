@@ -43,11 +43,13 @@ public class LuckyMoneyRepositoryTests {
     @Test
     public void save(){
         LuckyMoney money = new LuckyMoney();
-        money.setConsumer("sss");
-        money.setProducer("mas");
+        money.setConsumer("ssst");
+        money.setProducer("mast");
         money.setMoney(new BigDecimal(23));
-        repository.save(money);
+//        repository.save(money);
+        repository.saveAndFlush(money);
         return;
+
 
     }
 
