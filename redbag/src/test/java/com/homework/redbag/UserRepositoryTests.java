@@ -51,15 +51,15 @@ public class UserRepositoryTests {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword("123456");
-        user.setId("s01");
+        user.setId("4028098175fe84be0175fe84c8a40000");
         repository.save(user);
         return;
     }
 
     @Test
     public void getById(){
-        String id = "s01";
-        System.out.println(repository.findById(id));
+        String id = "4028098175fe84be0175fe84c8a40000";
+        System.out.println(repository.findById(id).get());
         return;
     }
 

@@ -22,9 +22,9 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public User save(@RequestParam("id") String id,@RequestParam("username") String username){
+    public User save(@RequestParam("username") String username,@RequestParam("password") String password){
         User user = new User();
-        user.setId(id);
+        user.setPassword(password);
         user.setUsername(username);
         return repository.save(user);
     }
@@ -36,10 +36,11 @@ public class UserController {
     }
 
     @PostMapping("update/{id}")
-    public User updateById(@RequestParam("id") String id,@RequestParam("username") String username){
+    public User updateById(@PathVariable("id") String id,@RequestParam("username") String username,@RequestParam("password") String password){
         User user = new User();
         user.setId(id);
         user.setUsername(username);
+        user.setPassword(password);
         return repository.save(user);
     }
 
