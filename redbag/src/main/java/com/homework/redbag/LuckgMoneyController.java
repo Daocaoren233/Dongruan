@@ -41,7 +41,7 @@ public class LuckgMoneyController {
     }
 
     @PutMapping("/put/{id}")
-    public LuckyMoney put(@PathVariable("id")Integer id,@RequestParam(value = "consumer",required = true) String consumer){
+    public LuckyMoney put(@PathVariable("id")Integer id,@RequestParam("consumer") String consumer){
         Optional<LuckyMoney> optional = repository.findById(id);
         if (optional.isPresent()){
             LuckyMoney luckyMoney = optional.get();
