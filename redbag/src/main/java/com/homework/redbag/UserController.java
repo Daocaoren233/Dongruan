@@ -22,27 +22,29 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public User save(@RequestParam("username") String username,@RequestParam("password") String password){
-        User user = new User();
-        user.setPassword(password);
-        user.setUsername(username);
+    public User save(@RequestBody User user){
         return repository.save(user);
     }
 
     @PutMapping("/delete/{id}")
+    //@DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable("id") String id){
         repository.deleteById(id);
         return;
     }
 
-    @PostMapping("update/{id}")
-    public User updateById(@PathVariable("id") String id,@RequestParam("username") String username,@RequestParam("password") String password){
-        User user = new User();
-        user.setId(id);
-        user.setUsername(username);
-        user.setPassword(password);
+
+
+    @PostMapping("/update")
+    public User updateById(@RequestBody User user){
         return repository.save(user);
     }
+
+    /**
+     * optional.get()
+     * optional.orElse()
+     * optional.orElseGet(User::user); User::user == User user = new User();
+     */
 
 
 }
