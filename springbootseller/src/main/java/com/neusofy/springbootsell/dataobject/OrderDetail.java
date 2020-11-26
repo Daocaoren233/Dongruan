@@ -1,12 +1,9 @@
-package com.neusoft.springbootsell.dataobject;
+package com.neusofy.springbootsell.dataobject;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
@@ -18,8 +15,6 @@ import java.math.BigDecimal;
 public class OrderDetail {
 
     @Id
-    @GenericGenerator(name = "detailId",strategy = "uuid")
-    @GeneratedValue(generator = "detailId")
     private String detailId;
 
     /**订单Id */

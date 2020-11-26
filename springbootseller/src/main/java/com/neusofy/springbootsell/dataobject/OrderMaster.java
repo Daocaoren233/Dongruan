@@ -1,11 +1,10 @@
-package com.neusoft.springbootsell.dataobject;
+package com.neusofy.springbootsell.dataobject;
+
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -18,8 +17,6 @@ import java.util.Date;
 @DynamicUpdate
 public class OrderMaster {
     @Id
-    @GenericGenerator(name = "OrderId",strategy = "uuid")
-    @GeneratedValue(generator = "OrderId")
     private String OrderId;
 
     private String buyerName;

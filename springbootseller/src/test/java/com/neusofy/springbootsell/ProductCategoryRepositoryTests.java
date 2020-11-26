@@ -1,4 +1,4 @@
-package com.neusoft.springbootsell;
+package com.neusofy.springbootsell;
 
 public class ProductCategoryRepositoryTests {
 }

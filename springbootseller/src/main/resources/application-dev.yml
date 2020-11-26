@@ -1,11 +1,11 @@
 server:
   port: 8080
   servlet:
-    context-path: /sell
+    context-path: /seller
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/sell?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/seller?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     username: root
     password: root
   jpa:

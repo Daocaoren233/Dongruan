@@ -1,13 +1,13 @@
-package com.neusoft;
+package com.neusofy.springbootsell;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NeusoftApplication {
+public class SpringbootsellApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NeusoftApplication.class, args);
+        SpringApplication.run(SpringbootsellApplication.class, args);
     }
 
 }

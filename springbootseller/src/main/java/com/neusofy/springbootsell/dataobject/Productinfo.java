@@ -1,4 +1,5 @@
-package com.neusoft.springbootsell.dataobject;
+package com.neusofy.springbootsell.dataobject;
+
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
@@ -42,6 +43,4 @@ public class Productinfo {
 
     /** 更新时间 */
     private Date updateTime;
-
-    public Productinfo(){}
 }
