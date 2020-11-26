@@ -1,7 +1,7 @@
 package com.neusoft.springbootsell.dataobject;
 
 import lombok.Data;
-import org.hibernate.annotations.DynamicInsert;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -17,34 +17,34 @@ import java.sql.Timestamp;
 @Entity
 @Data
 @DynamicUpdate
+@NoArgsConstructor
 public class OrderMaster {
     @Id
     @GenericGenerator(name = "OrderId",strategy = "uuid")
     @GeneratedValue(generator = "OrderId")
-    private String OrderId;
+    private String order_id;
 
-    private String buyerName;
+    private String buyer_name;
 
-    private String buyerPhone;
+    private String buyer_phone;
 
-    private String buyerAddress;
+    private String buyer_address;
 
-    private String buyerOpenId;
+    private String buyer_openid;
 
     /** 订单总金额 */
-    private BigDecimal oderAmount;
+    private BigDecimal order_amount;
 
     /** 订单状态 默认为0 新下单 */
-    private Integer orderStatus=0;
+    private Integer order_status=0;
 
     /** 支付状态 默认为0 未支付 */
-    private Integer payStatus=0;
+    private Integer pay_status=0;
 
     /** 创建时间 */
-    private Timestamp createTime;
+    private Timestamp create_time;
 
     /** 更新时间 */
-    private Timestamp updateTime;
+    private Timestamp update_time;
 
-    public OrderMaster(){}
 }

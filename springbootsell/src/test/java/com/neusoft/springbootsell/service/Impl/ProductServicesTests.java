@@ -1,7 +1,7 @@
 package com.neusoft.springbootsell.service.Impl;
 
 
-import com.neusoft.springbootsell.dataobject.Productinfo;
+import com.neusoft.springbootsell.dataobject.ProductInfo;
 import com.neusoft.springbootsell.services.Impl.ProductServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,10 +19,18 @@ public class ProductServicesTests {
 
     @Test
     public void findOne(){
-        String id = "402809817604862001760486296a0000";
-        Productinfo productinfo = productService.findOne(id);
-//        System.out.println(productinfo);
+        String id = "121221";
+        ProductInfo productinfo = productService.findOne(id);
+        System.out.println(productinfo);
         System.out.println("==============================================");
-        Assert.assertEquals("40280981760486200100",productinfo.getProductId());
+//        Assert.assertEquals("40280981760486200100",productinfo.getProduct_id());
     }
+
+//    public void onSale(){
+//        productService.onSale();
+//    }
+
+
+
+
 }

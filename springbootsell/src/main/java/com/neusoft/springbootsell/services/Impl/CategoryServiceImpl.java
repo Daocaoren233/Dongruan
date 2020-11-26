@@ -26,14 +26,8 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<ProductCategory> findByCagetoryTypeIn(List<ProductCategory> categoryList,Integer categoryType) {
-        List<ProductCategory> list = repository.findAll();
-        List<ProductCategory> listByType = new ArrayList<>();
-        for (ProductCategory e:list){
-            if (e.getCategoryType()==categoryType)
-                listByType.add(e);
-        }
-        return listByType;
+    public List<ProductCategory> findByCagetoryTypeIn(List<Integer> categoryList) {
+        return repository.findByCategoryTypeIn(categoryList);
     }
 
     @Override

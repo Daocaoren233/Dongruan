@@ -1,7 +1,10 @@
 package com.neusoft.springbootsell.repository;
 
-import com.neusoft.springbootsell.dataobject.Productinfo;
+import com.neusoft.springbootsell.dataobject.ProductInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductinfoRepository extends JpaRepository<Productinfo,String> {
+import java.util.List;
+
+public interface ProductinfoRepository extends JpaRepository<ProductInfo,String> {
+    public List<ProductInfo> findByProductStatus(Integer productStatus);
 }
