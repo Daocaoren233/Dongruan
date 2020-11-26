@@ -1,7 +1,6 @@
 package com.neusoft.springbootsell.repository;
 
 import com.neusoft.springbootsell.dataobject.OrderMaster;
-import com.neusoft.springbootsell.repository.OrderMasterRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

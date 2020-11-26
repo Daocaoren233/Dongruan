@@ -1,6 +1,7 @@
 package com.neusoft.springbootsell.dataobject;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -8,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * 订单主表
@@ -40,10 +41,10 @@ public class OrderMaster {
     private Integer payStatus=0;
 
     /** 创建时间 */
-    private Date createTime;
+    private Timestamp createTime;
 
     /** 更新时间 */
-    private Date updateTime;
+    private Timestamp updateTime;
 
     public OrderMaster(){}
 }
