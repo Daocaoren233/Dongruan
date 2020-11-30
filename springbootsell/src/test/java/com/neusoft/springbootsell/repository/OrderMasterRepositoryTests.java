@@ -32,7 +32,7 @@ public class OrderMasterRepositoryTests {
 
     @Test
     public void getById(){
-        String id = "40280981760480360176048040a40000";
+        String id = "1222222222";
         System.out.println(repository.findOne(id));
         return;
     }

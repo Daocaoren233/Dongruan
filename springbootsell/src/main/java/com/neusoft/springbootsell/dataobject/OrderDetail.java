@@ -16,7 +16,6 @@ import java.sql.Timestamp;
 @Entity
 @Data
 @NoArgsConstructor
-//@Table("OrderDetail")
 public class OrderDetail {
 
     @Id

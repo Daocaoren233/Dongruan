@@ -20,8 +20,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class OrderMaster {
     @Id
-    @GenericGenerator(name = "OrderId",strategy = "uuid")
-    @GeneratedValue(generator = "OrderId")
+    @GenericGenerator(name = "order_id",strategy = "uuid")
+    @GeneratedValue(generator = "order_id")
     private String order_id;
 
     private String buyer_name;

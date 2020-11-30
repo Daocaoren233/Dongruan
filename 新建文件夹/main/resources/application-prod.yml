@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj
+    url: jdbc:mysql://127.0.0.1:3305/sell?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: reat
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+
+
+
+
+
