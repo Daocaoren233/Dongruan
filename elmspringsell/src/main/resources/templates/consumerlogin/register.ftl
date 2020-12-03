@@ -1,14 +1,14 @@
 <html>
-<#include "../common/cheader.ftl">
+<#include "../common/header.ftl">
 <body>
 <div class="container-fluid">
     <div class="row clearfix" style="margin-top: 100px">
         <div class="col-md-4 column"></div>
         <div class="col-md-4 column">
-            <h3>商家注册:</h3>
-            <form role="form" method="post" action="/sell/login/save">
+            <h3>用户注册:</h3>
+            <form role="form" method="post" action="/sell/consumer/login/save">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">商家名称</label>
+                    <label for="exampleInputEmail1">用户名称</label>
                     <input name="username" type="text" class="form-control">
                 </div>
 

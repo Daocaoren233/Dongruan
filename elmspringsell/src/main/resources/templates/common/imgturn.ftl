@@ -1,4 +1,4 @@
-<div class="container-fluid" style="margin-top: -20px; ">
+<div class="container-fluid" style="margin-top: -20px">
     <div class="row">
         <div id="myCarousel" class="carousel slide">
 

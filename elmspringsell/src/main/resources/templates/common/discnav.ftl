@@ -8,29 +8,27 @@
                     <li><a href="#" style="font-size: 18px; color: white;">饿了么</a></li>
 
                     <li>
-                        <a href="/sell/consumer/login/homeed" style="font-size: 15px">热门推荐</a>
+                        <a href="/sell/consumer/login/home"  style="font-size: 15px">热门推荐</a>
                     </li>
+
                     <li>
-                        <a href="/sell/consumer/buy/sellersed" style="font-size: 15px">商家</a>
+                        <a href="/sell/consumer/buy/sellers" style="font-size: 15px">商家</a>
                     </li>
                 </ul>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="/sell/consumer/buy/order" style="font-size: 15px">订单</a>
-                    </li>
-                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            已登录 <b class="caret"></b>
+                            登录/注册 <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/sell/consumer/login/home">退出登录</a></li>
+                            <li><a href="/sell/consumer/login/login">登录</a></li>
+                            <li><a href="/sell/consumer/login/register">注册</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <img src="../../static/img/seller.jpg" style="height: 50px;width: 50px;border-radius: 50%;padding: 5px">
-                    </li>
+
+                    <li><a onclick="login()" href="#">个人中心  <span class="glyphicon glyphicon-user"></span></a></li>
                 </ul>
+
             </div>
         </div>
     </nav>

@@ -8,4 +8,10 @@ public class KeyUtil {
         Integer number =  random.nextInt(900000) + 100000;
         return System.currentTimeMillis() + number.toString();
     }
+
+    public static synchronized String getcode(){
+        Random random = new Random();
+        Integer number =  random.nextInt(900000) + 100000;
+        return number.toString();
+    }
 }

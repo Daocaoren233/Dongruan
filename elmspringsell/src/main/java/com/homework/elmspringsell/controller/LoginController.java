@@ -2,8 +2,6 @@ package com.homework.elmspringsell.controller;
 
 import com.homework.elmspringsell.dataobject.SellerInfo;
 import com.homework.elmspringsell.form.SellerForm;
-import com.homework.elmspringsell.service.Impl.ProductInfoServiceImpl;
-import com.homework.elmspringsell.service.ProductCategoryService;
 import com.homework.elmspringsell.service.SellerInfoService;
 import com.homework.elmspringsell.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
@@ -18,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.Map;
+import java.util.Scanner;
 
 @Controller
 @RequestMapping("/login")
@@ -65,9 +64,12 @@ public class LoginController {
         }
 
         if (form.getPassword().equals(sellerInfoService.findPassWordById(form.getId()))){
+
             map.put("msg", "欢迎"+sellerInfoService.findSellerNameById(form.getId())+"回来！");
             map.put("url", "/sell/seller/product/list");
             return new ModelAndView("common/success", map);
+//            String code = KeyUtil.code();
+
         }
         else {
             map.put("msg", "Id密码错误!");
