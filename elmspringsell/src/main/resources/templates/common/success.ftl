@@ -13,7 +13,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4>
                     成功!
-                </h4> <strong>${msg!""}</strong><a href="${url}" class="alert-link">3s后自动跳转</a>
+                </h4> <strong>${msg!""}</strong><a href="${url}" class="alert-link" id="time">3s后自动跳转</a>
             </div>
         </div>
     </div>
@@ -23,6 +23,13 @@
 
 <script>
     setTimeout('location.href="${url}"', 3000);
+    let time = document.getElementById("time");
+    let t = 2;
+    setInterval(function(){
+        time.innerHTML = t+"s后自动跳转";
+        t--;
+    },1000);
+
 </script>
 
 </html>

@@ -9,4 +9,6 @@ public interface OrderMasterRepository extends JpaRepository<OrderMaster,String>
     List<OrderMaster> findByOrderStatusIn(List<Integer> orderStatusId);
 
     List<OrderMaster> findByPayStatusIn(List<Integer> payStatusId);
+
+
 }

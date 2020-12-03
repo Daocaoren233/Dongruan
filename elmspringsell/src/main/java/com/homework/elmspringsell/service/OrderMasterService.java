@@ -1,14 +1,17 @@
 package com.homework.elmspringsell.service;
 
 import com.homework.elmspringsell.dataobject.OrderMaster;
+import org.springframework.data.domain.Page;
 
+
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface OrderMasterService {
 
     OrderMaster findOne(String orderId);
 
-    List<OrderMaster> findAll();
+    Page<OrderMaster> findAll(Pageable pageable);
 
     List<OrderMaster> findByPayStatus(List<Integer> payStatusList);
 

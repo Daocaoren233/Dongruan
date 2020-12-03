@@ -60,7 +60,7 @@ public class ProductInfoRepositoryTests {
 
     @Test
     public void delete(){
-        repository.delete("8578578571");
+        repository.delete("1606875658419602590");
     }
 
 }

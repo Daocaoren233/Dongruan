@@ -20,13 +20,13 @@ public class OrderMasterServiceImplTests {
     @Autowired
     private OrderMasterServiceImpl orderMasterService;
 
-    @Test
-    public void findAll(){
-        List<OrderMaster> orderMasterList = orderMasterService.findAll();
-        for (OrderMaster e:orderMasterList){
-            System.out.println(e);
-        }
-    }
+//    @Test
+//    public void findAll(){
+//        List<OrderMaster> orderMasterList = orderMasterService.findAll();
+//        for (OrderMaster e:orderMasterList){
+//            System.out.println(e);
+//        }
+//    }
 
     @Test
     public void findByOrderStatus(){

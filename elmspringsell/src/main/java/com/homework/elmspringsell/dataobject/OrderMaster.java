@@ -9,7 +9,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 

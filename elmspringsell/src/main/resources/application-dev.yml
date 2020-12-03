@@ -12,6 +12,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
   jackson:
     default-property-inclusion: non_null
+  mvc:
+    static-path-pattern: /static/**
+
+
 

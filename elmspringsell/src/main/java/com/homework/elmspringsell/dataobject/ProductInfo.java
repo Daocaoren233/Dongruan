@@ -3,6 +3,7 @@ package com.homework.elmspringsell.dataobject;
 import com.homework.elmspringsell.enums.ProductStatusEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @Entity
 @Data
 @NoArgsConstructor
+@DynamicUpdate
 public class ProductInfo {
     @Id
     private String productId;
